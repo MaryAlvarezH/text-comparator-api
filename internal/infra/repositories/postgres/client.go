@@ -18,7 +18,12 @@ func (c *client) Create(value interface{}) error {
 	return c.db.Create(value).Error
 }
 
-// First finds first record that match given conditions.
+// First finds first record that match with given conditions.
 func (c *client) First(dest interface{}, conds ...interface{}) error {
 	return c.db.First(dest, conds...).Error
+}
+
+// FindInOrder finds and orders results that match with given conditions.
+func (c *client) FindInOrder(out interface{}, order string, where ...interface{}) error {
+	return c.db.Order(order).Find(out, where...).Error
 }
