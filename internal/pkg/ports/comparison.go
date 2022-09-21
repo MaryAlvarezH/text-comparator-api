@@ -9,6 +9,6 @@ type ComparisonRepository interface {
 }
 
 type ComparisonService interface {
-	CompareTexts(*entity.TextComparisonRequest) (*entity.TextComparisonResults, error)
+	CompareTexts(*entity.TextComparisonRequest) (string, error)
 	GetUserTextComparisons(userID int) ([]*entity.TextComparison, error)
 }
